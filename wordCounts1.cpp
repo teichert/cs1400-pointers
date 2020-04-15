@@ -14,3 +14,7 @@
 // TODO: test and write sortWords
 // TODO: test and write countWords
 // TODO: write main
+
+int main() {
+    return 0;
+}
