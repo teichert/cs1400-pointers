@@ -14,6 +14,7 @@ using std::endl;
 
 // TODO: test and write stringLength
 // TODO: test and write compareCStrings
+// TODO: test and write compareCStrings2
 // TODO: test and write copyCString
 // TODO: test and write nextWord
 // TODO: test and write readWords
