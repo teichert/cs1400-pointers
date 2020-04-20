@@ -15,8 +15,8 @@ using std::endl;
 // xTODO: test and write stringLength (strlen)
 // xTODO: test and write compareCStrings (strcmp)
 // TODO: test and write compareCStrings2 (case-insensitive)
-// TODO: test and write copyCString
-// TODO: test and write nextWord
+// TODO: test and write copyCString (strcpy)
+// TODO: test and write nextWord (cin >> word)
 // TODO: test and write readWords
 // TODO: test and write freeWords
 // TODO: test and write sortWords
@@ -32,7 +32,11 @@ int stringLength(const char* s);
 // return 0 if lhs is the same as rhs
 int compareCStrings(const char* lhs, const char* rhs);
 
+// test our intcmp function
+void test_intcmp();
+
 void testDriver() {
+    test_intcmp();
     { // compareCStrings
         // same string should give 0
         assert(compareCStrings("test", "test") == 0);
@@ -113,3 +117,35 @@ int compareCStrings(const char* lhs, const char* rhs) {
         i++;
     }
 }
+
+
+// alternative implementation
+// int intcmp(int lhs, int rhs) {
+//     return lhs - rhs;
+// }
+
+int intcmp(int lhs, int rhs) {
+    if (lhs < rhs) {
+        return -1;
+    } else if (lhs > rhs) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
+void test_intcmp() {
+    // 15 < 20
+    assert(intcmp(15, 20) < 0);
+    assert(strcmp("15", "20") < 0);
+    // 20 > 15
+    assert(intcmp(20, 15) > 0);
+    assert(strcmp("20", "15") > 0);
+    // 10 == 10
+    assert(intcmp(10, 10) == 0);
+    assert(strcmp("10", "10") == 0);
+    // remember that strcmp won't pad the left
+    assert(intcmp(5, 20) < 0);
+    assert(strcmp("5", "20") > 0);
+
+}    
